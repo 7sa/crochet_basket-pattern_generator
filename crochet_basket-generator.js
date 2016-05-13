@@ -87,10 +87,11 @@ function basketMaker() {
 
 // SIDES
 	instructions += "Side 1:\n";
+	instructions += "ch " + ch + "\nStarting with the next stitch, ";
 	if (edge === "hard") {
-		instructions += "In either front or back loops only, ch ";
+		instructions += "in either front or back loops only, ";
 	}
-	instructions += ch + "\nStarting with the next stitch, " + st + " for " + total + " stitches\nJoin with sl st\n\n";
+	instructions += st + " for " + total + " stitches\nJoin with sl st\n\n";
 	instructions += "Side 2 (optional):\nTurn\n\n";
 	instructions += "Side 3:\nRepeat Side 1 until basket sides reach desired height\n\n";
 
