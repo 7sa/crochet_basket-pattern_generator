@@ -128,7 +128,7 @@ function basketMaker() {
 			instructions += "Join with sl st\n\n";
 		} else {
 			instructions += "ch " + handlength + " and skip " + handlength + " stitches\n";
-			instructions += st + " 1";
+			instructions += st + " 1\n";
 			instructions += "ch " + handlength + " and skip " + handlength + " stitches\n";
 			instructions += "Join with sl st\n\n";
 		}
