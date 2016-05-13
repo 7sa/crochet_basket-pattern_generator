@@ -1,6 +1,7 @@
 //SETUP
 var rows = prompt("How many rows do you want in your basket's base?", "Enter a number"),
-	natl = prompt("Do you use UK or US terminology?", "UK or US?").toLowerCase(),
+	natl = prompt("Do you use UK or US terminology?", "UK or US?"),
+	natl = natl.toLowerCase(),
 	st,
 	ch;
 
@@ -22,8 +23,10 @@ if (natl === "uk") {
 }
 
 // FINISHING
-var edge = prompt("Do you want your basket bottom to have a hard or soft edge?", "Hard or soft?").toLowerCase(),
-	rim = prompt ("Do you want your basket's rim plain, folded over, or with handles?", "Plain, folded, or handles?").toLowerCase();
+var edge = prompt("Do you want your basket bottom to have a hard or soft edge?", "Hard or soft?"),
+	edge = edge.toLowerCase(),
+	rim = prompt ("Do you want your basket's rim plain, folded over, or with handles?", "Plain, folded, or handles?"),
+	rim = rim.toLowerCase();
 
 if (rim === "handles") {
 	var handlength = prompt("About how many stitches long do you want your handles to be?", "Enter a number");
@@ -112,7 +115,7 @@ function basketMaker() {
 		// MAKES SURE HANDLE LENGTH ISN'T TOO LONG
 		if (handlength > Math.ceil(total/2)) {
 			handlength = Math.ceil((total - 2)/2);
-			instructions += "*Note: Desired handle length is too long and has been shortened to half the basket's circumference\nI suggest you choose a shorter length\n\n";
+			instructions += "*Note: Desired handle length is too long and has been shortened to half the basket's circumference\nI suggest you choose a shorter length\n\n"
 		}
 		// ADDS HANDLES
 		var spacer = Math.ceil((total - (handlength * 2))/2);
@@ -121,7 +124,7 @@ function basketMaker() {
 			instructions += "ch " + handlength + " and skip " + handlength + " stitches\n";
 			instructions += st + " for " + spacer + " stitches\n";
 			instructions += "ch " + handlength + " and skip " + handlength + " stitches\n";
-			instructions += st + " for " + Math.floor(spacer/2) + " stitches\n";
+			instructions += st + " for " + Math.ceil(spacer/2) + " stitches\n";
 			instructions += "Join with sl st\n\n";
 		} else {
 			instructions += "ch " + handlength + " and skip " + handlength + " stitches\n";
