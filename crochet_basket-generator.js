@@ -42,34 +42,34 @@ function basketMaker() {
 		total,
 		foldIncrease;
 
-	for (var row = 1; row <= rows; ++row) {
+	for (var row = 0; row <= rows; ++row) {
 
 		// start the circle
-		if (row === 1) {
-			instructions += "Row 1:\nTie a slip knot\nch 4\nJoin with sl st\n\n";
+		if (row === 0) {
+			instructions += "Start:\nTie a slip knot\nch 4\nJoin with sl st\n\n";
 			total = 4;
 		}
 
-		// rows 2 & 3
-		if (row === 2) {
-			instructions += "Row 2:\nch " + ch + "\n" + st + " 11 into ring\nJoin with sl st\n\n";
+		// rows 1 & 2
+		if (row === 1) {
+			instructions += "Row 1:\nch " + ch + "\n" + st + " 11 into ring\nJoin with sl st\n\n";
 			total = 12;
 			++row;
 		}
-		if (row === 3) {
-			instructions += "Row 3:\nch " + ch + "\n" + st + " once into same stitch.\nStarting with next stitch, " + st + " twice into each stich for 23 stitches\nJoin with sl st\n\n";
+		if (row === 2) {
+			instructions += "Row 2:\nch " + ch + "\n" + st + " once into same stitch.\nStarting with next stitch, " + st + " twice into each stich for 23 stitches\nJoin with sl st\n\n";
 			total = 24;
 			++row;
 		}
 
 		//rows 4+
-		if (row > 3) {
+		if (row > 2) {
 
 			// set total number of stitches this row
-			total = (row - 1) * 12 - 1;
+			total = (row) * 12 - 1;
 
 			// set stitch pattern
-			ringRatio.length = row - 2;
+			ringRatio.length = row - 1;
 			for (var ratioCount = 0; ratioCount < ringRatio.length; ++ratioCount) {
 				ringRatio[ratioCount] = st + " 1";
 			}
