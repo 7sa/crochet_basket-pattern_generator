@@ -119,7 +119,7 @@ function basketMaker() {
 		}
 		// ADDS HANDLES
 		var spacer = Math.ceil((total - (handlength * 2))/2);
-		if (spacer > 0) {
+		if (spacer > 1) {
 			instructions += "ch " + ch + "\nStarting with the next stitch, " + st + " for " + Math.floor(spacer/2) + " stitches\n";
 			instructions += "ch " + handlength + " and skip " + handlength + " stitches\n";
 			instructions += st + " for " + spacer + " stitches\n";
