@@ -89,7 +89,7 @@ function basketMaker() {
 	instructions += "Side 1:\n";
 	instructions += "ch " + ch + "\nStarting with the next stitch, ";
 	if (edge === "hard") {
-		instructions += "in either front or back loops only, ";
+		instructions += "in either front OR back loops ONLY, ";
 	}
 	instructions += st + " for " + total + " stitches\nJoin with sl st\n\n";
 	instructions += "Side 2 (optional):\nTurn\n\n";
