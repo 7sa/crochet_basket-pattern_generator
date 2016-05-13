@@ -93,8 +93,30 @@ function basketMaker() {
 
 
 
+// RIM
+	instructions += "Rim 1:\n";
+	if (rim === "folded") {									// FOLDED RIM
+		// ADD 1 MORE ROW TO BASE PATTERN
+		++row;
+		foldIncrease.unshift(st + " 1");
+		foldIncrease = foldIncrease.join(", ");
+		total += 12;
+		instructions += "\nch " + ch;
+		instructions += "\nStarting with the next stitch, " + foldIncrease + " for " + total + " stitches\nJoin with sl st\n\n";
+		// FINISH RIM
+		instructions += "Rim 2:\n" + "ch" + ch + "\nStarting with the next stitch, " + st + " for " + total + " stitches\nJoin with sl st\n\n";
+		instructions += "Rim 3:\nRepeat Rim 2 until fold reaches desired length\n\n";
+	} else if (rim === "handles") {
+
+	}
+
+	instructions += "Fasten off and weave in ends. Celebrate!"; // FINISHING BASKET!!
+
+
+
 // RETURN EVERYTHING!!
 	return instructions;
 }
+
 
 console.log(basketMaker());
