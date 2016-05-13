@@ -2,12 +2,7 @@
 var rows = prompt("How many rows do you want in your basket's base?", "Enter a number"),
 	natl = prompt("Do you use UK or US terminology?", "UK or US?").toLowerCase(),
 	st,
-	ch,
-	handlength;
-
-if (rim === "handles") {
-	handlength = prompt("About how many stitches long do you want your handles to be?", "Enter a number");
-}
+	ch;
 
 //NATIONALITY
 if (natl === "uk") {
@@ -27,8 +22,13 @@ if (natl === "uk") {
 }
 
 // FINISHING
-var edge = prompt("Do you want your basket to have a hard or soft edge?", "Hard or soft?").toLowerCase(),
+var edge = prompt("Do you want your basket bottom to have a hard or soft edge?", "Hard or soft?").toLowerCase(),
 	rim = prompt ("Do you want your basket's rim plain, folded over, or with handles?", "Plain, folded, or handles?").toLowerCase();
+
+if (rim === "handles") {
+	var handlength = prompt("About how many stitches long do you want your handles to be?", "Enter a number");
+}
+
 
 
 
@@ -98,6 +98,7 @@ function basketMaker() {
 	if (rim === "folded") {									// FOLDED RIM
 		// ADD 1 MORE ROW TO BASE PATTERN
 		++row;
+		console.log(foldIncrease);
 		foldIncrease.unshift(st + " 1");
 		foldIncrease = foldIncrease.join(", ");
 		total += 12;
@@ -106,15 +107,37 @@ function basketMaker() {
 		// FINISH RIM
 		instructions += "Rim 2:\n" + "ch" + ch + "\nStarting with the next stitch, " + st + " for " + total + " stitches\nJoin with sl st\n\n";
 		instructions += "Rim 3:\nRepeat Rim 2 until fold reaches desired length\n\n";
-	} else if (rim === "handles") {
+
+	} else if (rim === "handles") {							// HANDLED RIM
+		// MAKES SURE HANDLE LENGTH ISN'T TOO LONG
+		if (handlength > Math.ceil(total/2)) {
+			handlength = Math.ceil((total - 2)/2);
+			instructions += "*Note: Desired handle length is too long and has been shortened to half the basket's circumference\nI suggest you choose a shorter length\n\n";
+		}
+		// ADDS HANDLES
+		var spacer = Math.ceil((total - (handlength * 2))/2);
+		if (spacer > 0) {
+			instructions += "ch " + ch + "\nStarting with the next stitch, " + st + " for " + Math.floor(spacer/2) + " stitches\n";
+			instructions += "ch " + handlength + " and skip " + handlength + " stitches\n";
+			instructions += st + " for " + spacer + " stitches\n";
+			instructions += "ch " + handlength + " and skip " + handlength + " stitches\n";
+			instructions += st + " for " + Math.ceil(spacer/2) + " stitches\n";
+			instructions += "Join with sl st\n\n";
+		} else {
+			instructions += "ch " + handlength + " and skip " + handlength + " stitches\n";
+			instructions += st + " 1";
+			instructions += "ch " + handlength + " and skip " + handlength + " stitches\n";
+			instructions += "Join with sl st\n\n";
+		}
+		instructions += "Rim 2:\n";
+		instructions += "ch " + ch + "\nStarting with the next stitch, " + st + " for " + total + " stitches\n";
+		instructions += "Join with sl st\n\n";
 
 	}
 
 	instructions += "Fasten off and weave in ends. Celebrate!"; // FINISHING BASKET!!
 
 
-
-// RETURN EVERYTHING!!
 	return instructions;
 }
 
