@@ -115,7 +115,7 @@ function basketMaker() {
 		// MAKES SURE HANDLE LENGTH ISN'T TOO LONG
 		if (handlength > Math.ceil(total/2)) {
 			handlength = Math.ceil((total - 2)/2);
-			instructions += "*Note: Desired handle length is too long and has been shortened to half the basket's circumference\nI suggest you choose a shorter length\n\n"
+			instructions += "*Note: Desired handle length is too long and has been shortened to half the basket's circumference\nI suggest you choose a shorter length\n\n";
 		}
 		// ADDS HANDLES
 		var spacer = Math.ceil((total - (handlength * 2))/2);
@@ -124,7 +124,7 @@ function basketMaker() {
 			instructions += "ch " + handlength + " and skip " + handlength + " stitches\n";
 			instructions += st + " for " + spacer + " stitches\n";
 			instructions += "ch " + handlength + " and skip " + handlength + " stitches\n";
-			instructions += st + " for " + Math.ceil(spacer/2) + " stitches\n";
+			instructions += st + " for " + (Math.floor(spacer/2) - 1) + " stitches\n";		// 1 less than spacer total
 			instructions += "Join with sl st\n\n";
 		} else {
 			instructions += "ch " + handlength + " and skip " + handlength + " stitches\n";
